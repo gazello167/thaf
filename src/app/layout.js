@@ -1,7 +1,7 @@
 import './globals.css';
 
 export const metadata = {
-  title: 'Allamoda - Virtual Try-On',
+  title: 'THA Fashion - Virtual Try-On',
   description: 'Coba pakaian secara virtual dengan AI',
 };
 
