@@ -1,0 +1,67 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html, body {
+  -webkit-tap-highlight-color: transparent;
+  overscroll-behavior-y: contain;
+}
+
+body {
+  @apply bg-gradient-to-br from-blue-50 to-indigo-100;
+  min-height: 100vh;
+  min-height: 100dvh; /* dynamic viewport height - penting untuk mobile browser */
+  -webkit-overflow-scrolling: touch; /* smooth scroll di iOS */
+}
+
+/* Allow text selection di input/textarea */
+input, textarea, button, select {
+  user-select: auto;
+}
+
+/* Custom scrollbar (desktop only) */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-gray-100;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-purple-400 rounded-full;
+}
+
+/* Touch feedback untuk tombol */
+.touch-feedback:active {
+  transform: scale(0.97);
+  transition: transform 0.1s;
+}
+
+/* Safe area untuk notch/home indicator di iPhone */
+.safe-area-top {
+  padding-top: env(safe-area-inset-top);
+}
+
+.safe-area-bottom {
+  padding-bottom: env(safe-area-inset-bottom);
+}
+
+/* Shimmer loading effect */
+@keyframes shimmer {
+  0% { background-position: -1000px 0; }
+  100% { background-position: 1000px 0; }
+}
+
+.shimmer {
+  animation: shimmer 2s infinite;
+  background: linear-gradient(to right, #f0f0f0 0%, #e0e0e0 20%, #f0f0f0 40%, #f0f0f0 100%);
+  background-size: 1000px 100%;
+}
+
+/* Prevent zoom on input focus (iOS) */
+@media screen and (max-width: 768px) {
+  input, select, textarea {
+    font-size: 16px !important;
+  }
+}
